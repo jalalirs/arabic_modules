@@ -9,9 +9,6 @@ import glob
 import json
 import tashaphyne as tph
 
-
-ARABIC_STOPWORDS = "/red/peddn2/ssd/usr/jalalirs/twitter/macpro/depolarization/src/arabic_stopwords"
-
 # from snowballstemmer import stemmer
 # ar_stemmer = stemmer("arabic")
 
@@ -171,13 +168,3 @@ def is_arabic(txt):
 		if c not in acceptedLetters:
 			return False
 	return True
-def is_stop_word(w):
-	try:
-		decoded_text = w.decode('utf-8')
-	except UnicodeError:
-		pass
-	for x in w.split():
-		if x in STOPWORDS:
-			return True
-	
-	return False
