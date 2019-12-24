@@ -8,12 +8,16 @@ python attractive.py [-h] [-d DATASET] [-m METHOD] [-n MINLEN] [-x MAXLEN]
 
 arguments:
   -h, --help            show this help message and exit
+  
   -d DATASET, --dataset DATASET
                         dataset path (file or directory)
+  
   -m METHOD, --method METHOD
                         scoring method (average, sum, global_average)
+  
   -n MINLEN, --minlen MINLEN
                         article minimum length
+  
   -x MAXLEN, --maxlen MAXLEN
                         article maximum length
 
