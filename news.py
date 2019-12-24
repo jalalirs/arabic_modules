@@ -7,7 +7,7 @@ import re
 import os
 import glob
 import json
-import Arabic
+import arabic
 from utils import exists, is_file, ls
 #sys.setdefaultencoding('utf8')
 
@@ -85,7 +85,7 @@ class Article:
 	def __init__(self,title=None,content=None,author=None,url=None,source=None,ext_date=None):
 		self.title = title
 		self.content = content
-		self.clean_content = Arabic.clean_text(purify_txt(content))
+		self.clean_content = arabic.clean_text(purify_txt(content))
 		self.author=author
 		self.url = url
 		self.source = source
