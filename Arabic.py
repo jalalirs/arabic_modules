@@ -7,7 +7,10 @@ import re
 import os
 import glob
 import json
-import tashaphyne as tph
+from tashaphyne.normalize import strip_tashkeel,strip_tatweel,normalize_hamza,normalize_lamalef
+
+
+ARABIC_STOPWORDS = ""
 
 # from snowballstemmer import stemmer
 # ar_stemmer = stemmer("arabic")
@@ -110,7 +113,8 @@ lettersWaits = {
 "NOON":0.22,
 "HEH":0.01,
 "WAW":0.11,
-"YEH":0.13
+"YEH":0.13,
+"SPACE": 0
 }
 lettersIndex = {"HAMZA":0,"ALEF":1,"BEH":2,"TEH":3,"THEH":4,"JEEM":5,"HAH":6,
 "KHAH":7,"DAL":8,"THAL":9,"TCHEH":10,"REH":11,"ZAIN":12,"SEEN":13,"SHEEN":14,"SAD":15,"DAD":16,
@@ -133,13 +137,13 @@ def clean_harakat(txt):
 def clean_text(txt):
 	decoded_text = txt
 	try:
-		decoded_text = txt.decode('utf-8')
+		decoded_text = txt.encode().decode('utf-8')
 	except UnicodeError:
 		pass
-	clean = tph.strip_tashkeel(decoded_text)
-	clean = tph.strip_tatweel(clean)
-	clean = tph.normalize_hamza(clean)
-	clean = tph.normalize_lamalef(clean)
+	clean = strip_tashkeel(decoded_text)
+	clean = strip_tatweel(clean)
+	clean = normalize_hamza(clean)
+	clean = normalize_lamalef(clean)
 	return clean
 
 def stem(txt):
@@ -168,3 +172,13 @@ def is_arabic(txt):
 		if c not in acceptedLetters:
 			return False
 	return True
+def is_stop_word(w):
+	try:
+		decoded_text = w.decode('utf-8')
+	except UnicodeError:
+		pass
+	for x in w.split():
+		if x in STOPWORDS:
+			return True
+	
+	return False
