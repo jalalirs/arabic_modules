@@ -7,6 +7,7 @@ Score arabic articles based on letters' sound source.
 python attractive.py [-h] [-d DATASET] [-m METHOD] [-n MINLEN] [-x MAXLEN]
 
 arguments:
+
   -h, --help            show this help message and exit
   
   -d DATASET, --dataset DATASET
@@ -29,4 +30,5 @@ python attractive.py -d SaudiNewsNet/dataset/2015-07-23.json -m average
 # Dataset Source
 
 You may download a sample dataset of a news articles from 
+
 https://github.com/ParallelMazen/SaudiNewsNet
