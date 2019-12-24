@@ -1,4 +1,4 @@
-# Attractive Articles
+# Euphonious Article
 
 Score arabic articles based on letters' sound source. 
 
