@@ -4,7 +4,7 @@ Score arabic articles based on letters' sound source.
 
 # How to use
 
-python attractive.py [-h] [-d DATASET] [-m METHOD] [-n MINLEN] [-x MAXLEN]
+python euphonious.py [-h] [-d DATASET] [-m METHOD] [-n MINLEN] [-x MAXLEN]
 
 arguments:
 
